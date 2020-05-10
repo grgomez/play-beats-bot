@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/grgomez/play-beats-bot/issues"
   },
-  "homepage": "https://github.com/grgomez/play-beats-bot#readme"
+  "homepage": "https://github.com/grgomez/play-beats-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  }
 }
