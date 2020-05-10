@@ -1,0 +1,19 @@
+{
+  "name": "play-beats-bot",
+  "version": "1.0.0",
+  "description": "Discord Bot to play some beats in a channel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grgomez/play-beats-bot.git"
+  },
+  "author": "German Rafael Gomez Urbina <grgomezu@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grgomez/play-beats-bot/issues"
+  },
+  "homepage": "https://github.com/grgomez/play-beats-bot#readme"
+}
