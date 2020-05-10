@@ -5,20 +5,20 @@ const client = new Discord.Client();
 const config = require('./config.json');
 
 client.once('ready', () => {
-    console.log('I am ready to play some beats!');
+	console.log('I am ready to play some beats!');
 });
 
 client.on('message', async message => {
 
-    if (message.author.bot) return;
-    if (message.content.indexOf(config.prefix) !== 0) return;
+	if (message.author.bot) return;
+	if (message.content.indexOf(config.prefix) !== 0) return;
 
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
 
-    if (command === 'hey') {
-        message.channel.send('Hey buddy! Wanna hear some music?');
-    }
+	if (command === 'hey') {
+		message.channel.send('Hey buddy! Wanna hear some music?');
+	}
 });
 
 client.login(config.token);
