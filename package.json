@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/grgomez/play-beats-bot#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.2.0",
-    "eslint": "^7.0.0"
+    "eslint": "^7.0.0",
+    "ffmpeg-static": "^4.2.1",
+    "ytdl-core": "^2.1.2"
   }
 }
