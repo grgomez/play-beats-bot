@@ -14,7 +14,7 @@ const ytdl = require('ytdl-core');
 /* pass in token through config */
 const config = require('./config.json');
 const client = new Discord.Client();
-let connection = undefined; 
+let connection = undefined;
 
 client.once('ready', () => {
 	console.log('I am ready to play some beats!');
@@ -33,6 +33,9 @@ client.on('message', async message => {
 	}
 
 	if (command === 'join') {
+
+		if (!message.guild) return;
+
 		if (message.member.voice.channel) {
 			if (connection === undefined) {
 				connection = await message.member.voice.channel.join();
