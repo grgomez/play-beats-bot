@@ -45,7 +45,14 @@ client.on('message', async message => {
 		if (message.member.voice.channel) {
 			if (connection === undefined) {
 				connection = await message.member.voice.channel.join();
-				message.reply('joining the parteh!!');
+				message.reply(`joining the parteh!!\n \
+If you want to have some fun let me know!\n \
+My commands are:\n \
+\t${config.prefix}hey - I'll holla at you!\n \
+\t${config.prefix}join - I'll join the party!\n \
+\t${config.prefix}play - I'll play a song!\n \
+\t${config.prefix}pause - I'll pause the song!\n \
+\t${config.prefix}stop - I'll cancel the song!\n`);
 			}
 		}
 		else {
@@ -62,10 +69,10 @@ client.on('message', async message => {
 			});
 		break;
 	case 'pause':
-		dispatcher.pause();
+		if (!dispatcher) dispatcher.pause();
 		break;
 	case 'stop':
-		dispatcher.destroy();
+		if (!dispatcher) dispatcher.destroy();
 		break;
 	}
 
