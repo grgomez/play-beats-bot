@@ -1,16 +1,6 @@
 /*
 	This is a DJ bot to play some music
 	@author: German Rafael Gomez Urbina <grgomezu@gmail.com>
-
-	Resources:
-		- https://gist.github.com/eslachance/3349734a98d30011bb202f47342601d3
-		- https://discord.js.org/#/docs/main/stable/topics/voice
-		- https://blog.pragmatists.com/let-your-javascript-variables-be-constant-1633e56a948d
-		- https://openbase.io/js/ytdl-core
-		- https://gabrieltanner.org/blog/dicord-music-bot
-		- https://www.npmjs.com/package/yt-search
-		- https://www.writebots.com/how-to-make-a-discord-bot/
-
 */
 
 const Discord = require('discord.js');
@@ -52,7 +42,7 @@ My commands are:\n \
 \t${config.prefix}join - I'll join the party!\n \
 \t${config.prefix}play - I'll play a song!\n \
 \t${config.prefix}pause - I'll pause the song!\n \
-\t${config.prefix}stop - I'll cancel the song!\n`);
+\t${config.prefix}stop - 'I'll cancel the song!\n`);
 			}
 		}
 		else {
@@ -60,19 +50,31 @@ My commands are:\n \
 		}
 		break;
 	case 'play':
-		/* For now... I WILL SURVIVE!! */
-		dispatcher = connection
-			.play(ytdl('https://www.youtube.com/watch?v=gYkACVDFmeg', { filter: 'audioonly' }))
-			.on('finish', () => {
-				console.log('Finished playing song');
-				dispatcher.destroy();
-			});
+		yts(args.join(' '), function(err, r) {
+			const v = r.videos.shift();
+			const embed = new Discord.MessageEmbed()
+				.setTitle(v.title)
+				.setImage(v.image)
+				.setURL(v.url);
+			message.channel.send(embed);
+
+			dispatcher = connection
+				.play(ytdl(v.url, { filter: 'audioonly' }))
+				.on('finish', () => {
+					console.log('Finished playing song');
+					dispatcher.destroy();
+				});
+		});
+
 		break;
 	case 'pause':
-		if (!dispatcher) dispatcher.pause();
+		if (dispatcher) dispatcher.pause();
 		break;
 	case 'stop':
-		if (!dispatcher) dispatcher.destroy();
+		if (dispatcher) dispatcher.destroy();
+		break;
+	case 'resume':
+		if (dispatcher) dispatcher.resume();
 		break;
 	}
 
