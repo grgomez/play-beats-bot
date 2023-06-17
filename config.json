@@ -1,4 +1,5 @@
 {
-    "token": "add-token-here",
-    "prefix": "!"
+	"token": "add-token-here",
+	"clientId": "add-client-id-here",
+	"guildId": "add-guild-id-here"
 }
