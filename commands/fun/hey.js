@@ -5,6 +5,6 @@ module.exports = {
 		.setName('hey')
 		.setDescription('Bot will say hi to yall'),
 	async execute(interaction) {
-		await interaction.reply('hey!');
+		return interaction.reply('Hey buddy! Wanna hear some beats?');
 	},
 };
