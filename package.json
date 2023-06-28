@@ -23,6 +23,6 @@
     "ffmpeg-static": "^4.2.1",
     "optionator": "^0.9.1",
     "yt-search": "^2.10.4",
-    "ytdl-core": "^2.1.2"
+    "ytdl-core": "^4.11.4"
   }
 }
